@@ -356,14 +356,129 @@ new Cube({
   viewport: viewport,
   element: document.getElementsByClassName("cube")[0],
 });
-// Play Pause function
-const play = document.getElementById ("contact")
 
-video.addEventListener("timeupdate", function(){
-  if(this.currentTime >= 60 / 10) {
-      this.pause();
+
+
+// Play Pause function
+
+
+
+var ppbutton = document.getElementById("about");
+ppbutton.addEventListener("dblclick", playPause);
+myVideo = document.getElementById("myvid");
+
+var ppbutton = document.getElementById("contact");
+ppbutton.addEventListener("dblclick", playPause);
+myVideo = document.getElementById("myvid");
+
+var ppbutton = document.getElementById("projects");
+ppbutton.addEventListener("dblclick", playPause);
+myVideo = document.getElementById("myvid");
+
+var ppbutton = document.getElementById("resume");
+ppbutton.addEventListener("dblclick", playPause);
+myVideo = document.getElementById("myvid");
+
+var ppbutton = document.getElementById("home");
+ppbutton.addEventListener("dblclick", playPause);
+myVideo = document.getElementById("myvid");
+
+var ppbutton = document.getElementById("other");
+ppbutton.addEventListener("dblclick", playPause);
+myVideo = document.getElementById("myvid");
+
+function playPause() {
+  if (myVideo.paused) {
+    myVideo.play();
+    // ppbutton.innerHTML = "On My Way";
+    //   } else {
+    //     myVideo.pause();
+    // ppbutton.innerHTML = "About";  
   }
-});
+
+ 
+
+  //   Speed Function
+  var vid = document.getElementById("myvid");
+  vid.playbackRate = 8.0;
+
+  // Stop interval function
+
+  var $video = $(myvid);
+  var video = $video.get(0);
+
+  video.addEventListener("timeupdate", function () {
+    var lastCheckedAt = $video.data("lastcheck") || 0;
+    $video.data("lastcheck", this.currentTime);
+
+    if (this.currentTime >= 4 && lastCheckedAt < 4) {
+      console.log("4 seconds");
+      this.pause();
+      $("button").show();
+
+    } else if (this.currentTime >= 9 && lastCheckedAt < 9) {
+      console.log("9 seconds");
+      this.pause();
+
+      $("button").text("about").show();
+    } else if (this.currentTime >= 14 && lastCheckedAt < 14) {
+      console.log("14 seconds");
+      this.pause();
+
+      // $("about").text("about").show();
+    } else if (this.currentTime >= 18) {
+      console.log("18 seconds");
+      this.pause();
+
+      // $("button").text("Part 5").show();
+    }
+  });
+
+  $("button").click(function () {
+    video.play();
+    $("button").hide();
+  });
+}
+
+
+// var play = document.getElementById("about");
+// play.addEventListener("click", playPause);
+// myvideo = document.getElementById ("myvideo");
+
+
+
+//   .onclick = function ffTo6 ( )
+
+
+
+//   var vid = document.getElementById('myvideo')
+//       addEventListener // number of milliseconds between frames in fast-forward/rewind
+//       endtime = 6.0; // time to fast-forward/remind to (in seconds)
+//   // fast-forward/rewind video to end time 
+//   var tdelta = (endtime - vid.currentTime)/ticks; 
+//   var startTime = vid.currentTime;
+//   for ( var i = 0; i < ticks; ++i )
+//   {
+//      (function(j){
+//          setTimeout(function() {
+//                vid.currentTime = startTime+tdelta * j;
+//          }, j * frms);
+//      })(i);
+//   }
+// } 
+
+
+
+
+
+
+// const play = document.getElementById ("contact")
+
+// video.addEventListener("timeupdate", function(){
+//   if(this.currentTime >= 60 / 10) {
+//       this.pause();
+//   }
+// });
 
 // var myvideo = document.getElementById('myvideo'),
 //     playbutton = document.getElementById('about'),
